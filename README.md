@@ -16,7 +16,8 @@ $$\mathbf{v} = (\mathbf{I} - \gamma\mathbf{P})^{-1} \mathbf{r}$$
 #### **B. Iterative Policy Evaluation (Dynamic Programming)**
 A bootstrapping approach that improves state-value estimates through successive synchronous sweeps of the state space.
 * **Mechanism:** Synchronous DP updates based on the Bellman Expectation Equation.
-* **Convergence:** Guaranteed fixed-point equilibrium with a tolerance of $\Delta < 10^{-6}$.
+* **Convergence:** Guaranteed fixed-point equilibrium with a tolerance .
+
 
 ---
 
@@ -47,4 +48,5 @@ $$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \frac{1}{N(S_t, A_t)} \left[ G - Q(S_t, A
 
 ## Key Results
 * **Gridworld:** Visualized value propagation from high-reward teleporters across the grid.
-* **Blackjack:** Derived the optimal decision boundary for "Hit vs. Stick" across 9.1 million training episodes, accounting for the **Usable Ace** logic.
+* **Blackjack:** Derived the optimal decision boundary for "Hit vs. Stick" across many training episodes, accounting for the **Usable Ace** logic.
+
