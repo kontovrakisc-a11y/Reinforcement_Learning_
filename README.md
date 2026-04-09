@@ -55,7 +55,7 @@ $$P(s' \mid s, a) = \sum \Pr(\text{rentals})\Pr(\text{returns}) \cdot \text{Indi
 The optimal policy is found by alternating between two fundamental Dynamic Programming operations until the policy strictly converges (stabilizes):
 
 * **Iterative Policy Evaluation:** Approximates the state-value function $V_\pi(s)$ for the current policy by sweeping through the state space and applying the Bellman Expectation Equation. The updates account for the immediate transfer costs and the expected subsequent rental rewards:
-$$V_{k+1}(s) = \mathbb{E}\left[ R(s,a) - C(a) + \gamma V_k(s') \,\middle|\, s,\, a=\pi(s) \right]$$
+$$V_{k+1}(s) = \mathbb{E}\left[ R(s,a) - C(a) + \gamma V_k(s') \middle| s, a=\pi(s) \right]$$
 
 
 * **Greedy Policy Improvement:** Once the value function is evaluated, the policy is updated via
