@@ -58,9 +58,17 @@ The optimal policy is found by alternating between two fundamental Dynamic Progr
 $$V_{k+1}(s) = \mathbb{E}\left[ R(s,a) - C(a) + \gamma V_k(s') \,\middle|\, s,\, a=\pi(s) \right]$$
 
 
+* **Greedy Policy Improvement:** Once the value function is evaluated, the policy is updated by performing a one-step lookahead to find the action that maximizes the expected return (the action-value $Q(s,a)$):
 
-* **Greedy Policy Improvement:** Once the value function is evaluated, the policy is updated by performing a one-step lookahead to find the action that maximizes the expected return (the action-value $$Q(s,a)$$):
-* *$$\pi_{\text{new}}(s) = \arg\max_{a \in \mathcal{A}(s)} \sum_{s'} P(s' \mid s, a) \left[ R(s, a) + \gamma V(s') \right]$$
+  $$
+  \pi_{\text{new}}(s)
+  =
+  \arg\max_{a \in \mathcal{A}(s)}
+  \sum_{s'} P(s' \mid s, a)
+  \left[
+  R(s, a) + \gamma V(s')
+  \right]
+  $$
 
 ---
 
