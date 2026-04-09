@@ -56,8 +56,18 @@ The optimal policy is found by alternating between two fundamental Dynamic Progr
 
 * **Iterative Policy Evaluation:** Approximates the state-value function $V_\pi(s)$ for the current policy by sweeping through the state space and applying the Bellman Expectation Equation. The updates account for the immediate transfer costs and the expected subsequent rental rewards:
 $$V_{k+1}(s) = \mathbb{E}\!\left[\,R(s,a) - C(a) + \gamma V_k(s') \,\middle|\, s,\, a=\pi(s) \right]$$
+$$
+V_{k+1}(s)
+=
+\mathbb{E}\!\left[
+R\bigl(s,\pi(s)\bigr) - C\bigl(\pi(s)\bigr)
++ \gamma V_k(s')
+\;\middle|\; s
+\right]
+$$
 
-* **Greedy Policy Improvement:** Once the value function is evaluated, the policy is updated by performing a one-step lookahead to find the action that maximizes the expected return (the action-value $Q(s, a)$):
+
+* **Greedy Policy Improvement:** Once the value function is evaluated, the policy is updated by performing a one-step lookahead to find the action that maximizes the expected return (the action-value $ Q(s, a) $):
 $$\pi_{\text{new}}(s) = \arg\max_{a \in \mathcal{A}(s)} \sum_{s'} P(s' \mid s, a) \left[ R(s, a) + \gamma V(s') \right]$$
 ---
 
