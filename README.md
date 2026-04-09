@@ -70,6 +70,7 @@ $$V_{k+1}(s) = \mathbb{E}\left[ R(s,a) - C(a) + \gamma V_k(s') \,\middle|\, s,\,
   \right]
   $$
 
+
 ---
 
 ## Technical Stack
