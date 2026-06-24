@@ -66,6 +66,38 @@ $\pi_{\text{new}}(s)=\arg\max_{a\in\mathcal{A}(s)}\sum_{s'}P(s'|s,a)\left[R(s,a)
 
 ---
 
+## 4. Racetrack: Off-Policy Monte Carlo Control (Learning)
+A custom Racetrack solver that learns from experience using an off-policy Monte Carlo control algorithm. The notebook uses a Numba-optimized custom environment to handle velocity dynamics, stochastic action failure, wall collisions, and ray-cast finish detection.
+
+### Applied Methods:
+* **Off-policy Monte Carlo control** with weighted importance sampling.
+* **Epsilon decay** and **action masking** to enforce valid motion and help long-trajectory learning.
+* **Numba JIT acceleration** to train 500,000 episodes efficiently in seconds.
+* **Custom reward shaping:** step penalty of $-1$ plus a large terminal reward on finish.
+
+---
+
+## 5. Windy Gridworld: SARSA Control (Learning)
+A Windy Gridworld implementation from Sutton & Barto that learns the optimal path under column-dependent wind forces. The agent is trained on a $10\times 7$ grid using on-policy SARSA and an $\epsilon$-greedy policy.
+
+### Applied Methods:
+* **SARSA on-policy TD control** for direct policy learning.
+* **Deterministic environment dynamics** augmented by column wind forces.
+* **Epsilon-greedy exploration** with random tie-breaking to avoid directional bias.
+
+---
+
+## 6. Cliff Gridworld: TD Control Comparison (Learning)
+A comparative study of TD control algorithms on the classic Cliff Walking task. The environment penalizes cliff falls heavily, and the notebook contrasts how different algorithms learn to trade off risk and path length.
+
+### Applied Methods:
+* **SARSA** for on-policy learning of the actual behavior policy.
+* **Q-Learning** for off-policy estimation of the greedy optimal policy.
+* **Expected SARSA** for lower-variance updates using expected next-state action values.
+* **Cliff penalty analysis** to demonstrate safe versus risky policy behavior.
+
+---
+
 ## Technical Stack
 * **Python 3.x**
 * **NumPy** (Linear Algebra & Matrix Operations)
@@ -79,4 +111,7 @@ $\pi_{\text{new}}(s)=\arg\max_{a\in\mathcal{A}(s)}\sum_{s'}P(s'|s,a)\left[R(s,a)
 * **Jack's Car Rental:** * Successfully reached optimal policy convergence in exactly 5 iterations.
     * Visualized the optimal action mapping (2D array/contour), demonstrating the non-linear decision boundaries for moving cars based on asymmetric request/return rates.
     * Plotted the 3D Optimal Value Function, illustrating the expected long-term value of varying starting inventories at both locations.
+* **Racetrack:** Demonstrated Numba-accelerated off-policy Monte Carlo control, with action masking and decaying exploration to learn optimal racing trajectories from all start positions.
+* **Windy Gridworld:** Learned a wind-aware optimal policy using SARSA and visualized the agent’s trajectory on a column-driven wind field.
+* **Cliff Gridworld:** Compared SARSA, Q-Learning, and Expected SARSA, showing how on-policy learning produces safer trajectories while off-policy Q-learning can favor the cliff-edge optimal route.
 
